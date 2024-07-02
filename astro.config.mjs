@@ -20,10 +20,7 @@ export default defineConfig({
       apiKey: 'YOUR_SEARCH_API_KEY',
       indexName: 'YOUR_INDEX_NAME'
     })],
-    logo: {
-      src: '/var/www/html/shipper-laravel-project/src/assets/avatar.svg'
-      // replacesTitle: true
-    },
+  
     sidebar: [{
       label: 'Laravel & Package composition',
       link: '/package/package/'
