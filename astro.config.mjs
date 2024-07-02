@@ -11,7 +11,7 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   site: "http://localhost:3000",
   integrations: [starlight({
-    title: 'My Docs',
+    title: 'Saras',
     // social: {
     //   github: 'https://github.com/withastro/starlight'
     // },
