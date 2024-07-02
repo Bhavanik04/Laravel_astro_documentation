@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.astro-j6tvhyss{
+    font-size: 30px !important;
+}
+h1:where(.astro-j6tvhyss)
+{ 
+ font-size:30px
+ }
+ .sl-markdown-content h2{
+  font-size:30px   
+ }
