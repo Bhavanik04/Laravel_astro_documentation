@@ -8,6 +8,7 @@ import starlightDocSearch from '@astrojs/starlight-docsearch';
 // https://astro.build/config
 export default defineConfig({
   site: "http://localhost:3000",
+  
   integrations: [starlight({
     title: 'My Docs',
     // social: {
