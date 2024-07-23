@@ -57,13 +57,3 @@ A failed validation response looks like this, with a HTTP status code of 422. If
             }
 
 
- <style>
-  h1:where(.astro-j6tvhyss)
-   { 
-    font-size:30px
-    }
-    .sl-markdown-content h2{
-     font-size:30px   
-    }
-    
-</style>           

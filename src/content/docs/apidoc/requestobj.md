@@ -39,7 +39,13 @@ Above two steps will ensure that when a mobile_number is saved to contact table 
 
 ## 3. Increase mobile_number column length
 
-           alter table contact alter column mobile_number type varchar(500)
+
+
+```sh
+alter table contact alter column mobile_number type varchar(500)
+
+```
+
 
 ## 4. Encrypt mobile_number values one time
 
@@ -92,14 +98,3 @@ Above two steps will ensure that when a mobile_number is saved to contact table 
   - Going forward data lake need not receive the encrypted <span class="text-[13px] bg-[#EDEEF3] px-2 py-1">mobile_number</span>. The sync process needs to send only the <span class="text-[13px] bg-[#EDEEF3] px-2 py-1">masked_mobile_number</span> value. While the encryption/decryption is baked into Laravel, the data sync will be a non-laravel application (Airbyte today, something else tomorrow). Therefore to decouple Laravel <span class="text-[13px] bg-[#EDEEF3] px-2 py-1">encryption/decryption</span> dependency, its better to store the masked mobile number in an additional column in the contact table itself.
 
 
-
-<style>
-  h1:where(.astro-j6tvhyss)
-   { 
-    font-size:30px
-    }
-    .sl-markdown-content h2{
-     font-size:16px   
-    }
-    
-</style>

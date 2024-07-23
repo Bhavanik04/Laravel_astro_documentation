@@ -1,12 +1,12 @@
-// // astro.config.mjs
-// import { defineConfig } from 'astro/config';
-// import starlight from '@astrojs/starlight';
-// import mdx from "@astrojs/mdx";
-// import tailwind from "@astrojs/tailwind";
-// import sitemap from "@astrojs/sitemap";
-// import starlightDocSearch from '@astrojs/starlight-docsearch';
-// import vercel from "@astrojs/vercel/serverless";
-// import react from "@astrojs/react";
+// astro.config.mjs
+import { defineConfig } from 'astro/config';
+import starlight from '@astrojs/starlight';
+import mdx from "@astrojs/mdx";
+import tailwind from "@astrojs/tailwind";
+import sitemap from "@astrojs/sitemap";
+import starlightDocSearch from '@astrojs/starlight-docsearch';
+import vercel from "@astrojs/vercel/serverless";
+import react from "@astrojs/react";
 
 // const laravelApiSidebar = [
 //   {
@@ -119,54 +119,90 @@
 //   }
 // ];
 
-// export default defineConfig({
-//   site: "http://localhost:3000",
-//   integrations: [
-//     starlight({
-//       title: 'Saras',
-//       sidebar: [
-//         // The default sidebar configuration will be overwritten
-//         {
-//           label: 'Laravel API',
-//           items: laravelApiSidebar,
-//           match: /^\/package\/package|\/apisecurity|\/apilogging|\/apidoc/
-//         },
-//         {
-//           label: 'Learning Astro',
-//           items: learningAstroSidebar,
-//           match: /^\/laravel\/api/
-//         }
-//       ]
-//     }),
-//     tailwind(),
-//     mdx(),
-//     sitemap(),
-//     react()
-//   ],
-//   output: "server",
-//   adapter: vercel()
-// });
-
-
-
-import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
-import tailwind from '@astrojs/tailwind';
-import { customSidebar ,learningAstroSidebar ,getSidebar} from './src/components/customesidebar';
-import mdx from "@astrojs/mdx";
-import react from "@astrojs/react";
-
 export default defineConfig({
-    site: "http://localhost:3000",
-    integrations: [
-        starlight({
-            title: 'Saras',
-            // sidebar: customSidebar ,
-            sidebar: getSidebar('/') 
-        }),
-        tailwind(),
-        mdx(),
-        react()
-    ],
+  site: "http://localhost:3000",
+  integrations: [
+    starlight({
+      title: 'Saras',
+      customCss: [
+        // Relative path to your custom CSS file
+        '/src/tailwind.css',
+      ],
+      sidebar: [
+        {
+            label: 'Laravel & Package composition',
+            link: '/package/package/'
+          },
+          {
+            label: 'API Security',
+            items: [
+              {
+                label: 'API Security',
+                link: '/apisecurity/token/'
+              }
+            ]
+          },
+          {
+            label: 'API Logging',
+            autogenerate: {
+              directory: 'apilogging'
+            }
+          },
+          {
+              label: 'API Documentation',
+              autogenerate: {
+                directory: 'apidoc/apidoc'
+              },
+              autogenerate: {
+                directory: 'apidoc/requestobj'
+              },
+              autogenerate: {
+                directory: 'apidoc'
+              },
+              autogenerate: {
+                directory: 'apidoc'
+              }
+            },
+            {
+                label: 'Coding Standards',
+                autogenerate: {
+                    directory: 'codingstandards/'
+                  },
+            
+                
+              },
+              
+      ]
+    }),
+    tailwind(),
+    mdx(),
+    sitemap(),
+    react()
+  ],
+  output: "server",
+  adapter: vercel()
 });
+
+
+
+// import { defineConfig } from 'astro/config';
+// import starlight from '@astrojs/starlight';
+// import tailwind from '@astrojs/tailwind';
+// import { customSidebar ,learningAstroSidebar ,getSidebar} from './src/components/customesidebar';
+// import mdx from "@astrojs/mdx";
+// import react from "@astrojs/react";
+
+// export default defineConfig({
+//     site: "http://localhost:3000",
+//     integrations: [
+//         starlight({
+//             title: 'Saras',
+//             // sidebar: customSidebar ,
+//             sidebar: getSidebar('/') 
+//         }),
+//         tailwind(),
+//         mdx(),
+//         react()
+//     ],
+// });
 

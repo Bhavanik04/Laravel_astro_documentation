@@ -151,14 +151,4 @@ ApiLoggingService will lookup the <span class="text-[13px] bg-[#EDEEF3] px-2 py-
                 
             }
         }
- <style>
-
-  h1:where(.astro-j6tvhyss)
-   { 
-    font-size:30px
-    }
-    .sl-markdown-content h2{
-     font-size:30px   
-    }
-    
-</style>
+ 

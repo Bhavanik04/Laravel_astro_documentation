@@ -39,13 +39,4 @@ The API takes the following parameters as search filters
           
 
 
- <style>
-  h1:where(.astro-j6tvhyss)
-   { 
-    font-size:30px
-    }
-    .sl-markdown-content h2{
-     font-size:30px   
-    }
-    
-</style>         
+        

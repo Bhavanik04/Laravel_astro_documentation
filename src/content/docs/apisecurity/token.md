@@ -46,10 +46,10 @@ The calling application will then attach the token in the Http Header as Bearer 
 ## Token Lifetime and Expiry
 
 <div class="flex gap-2">
-<span class="text-block font-bold ">Question:</span>
+<span class="text-block font-bold !text-[17px]">Question:</span>
 <span> Should we explicitly set an expiry time?</span></div>
 
-<div class="flex gap-2"><span class="text-block font-bold ">Resolution: </span>
+<div class="flex gap-2"><span class="text-block font-bold !text-[17px]">Resolution: </span>
 <span> Set to 24 hours.</span> </div>
 
 
@@ -61,7 +61,10 @@ Tokens shall be invalidated when a user logs out of the application. The front-e
 The revokeToken API can revoke the current token by
 
 
-         $request->user()->currentAccessToken()->delete();
+```js
+ $request->user()->currentAccessToken()->delete();
+
+```
 
 
 
@@ -72,28 +75,23 @@ The revokeToken API can revoke the current token by
 ![A rocketship in space](../../../assets/tabledata.png)
 
 
-<h1 class="text-gray-500 text-[13px]">Questions:</h1>
+
+
+:::caution
+
+<h1 class="text-gray-500 !text-[17px]">Questions:</h1>
 
 Need to store the calling application name (TE-Admin, Mobile App etc) in personal_access_tokens table?
 This allows tracking of user tokens at a granular level.
+:::
+
 
 ## Token cleanup
 
 If we set an expiry time for tokens, expired tokens can be cleaned up periodically using Sanctum’s out-of-the-box console command
 
 
-         php artisan sanctum:prune-expired
 
-
-
-
-<style>
-  h1:where(.astro-j6tvhyss)
-   { 
-    font-size:30px
-    }
-    .sl-markdown-content h2{
-     font-size:30px   
-    }
-    
-</style>
+```sh
+php artisan sanctum:prune-expired
+```

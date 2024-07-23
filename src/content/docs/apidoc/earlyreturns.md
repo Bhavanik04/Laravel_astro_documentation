@@ -73,13 +73,4 @@ Example code that does not use early returns
         }
 
           
- <style>
-  h1:where(.astro-j6tvhyss)
-   { 
-    font-size:30px
-    }
-    .sl-markdown-content h2{
-     font-size:30px   
-    }
-    
-</style>         
+       
