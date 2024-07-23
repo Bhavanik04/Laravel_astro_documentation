@@ -157,50 +157,16 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 
 export default defineConfig({
-  site: "http://localhost:3000",
-  integrations: [starlight({
-    title: 'Saras',
-    // social: {
-    //   github: 'https://github.com/withastro/starlight'
-    // },
-    plugins: [starlightDocSearch({
-      appId: 'YOUR_APP_ID',
-      apiKey: 'YOUR_SEARCH_API_KEY',
-      indexName: 'YOUR_INDEX_NAME'
-    })],
-  
-    sidebar: [{
-      label: 'Laravel & Package composition',
-      link: '/package/package/'
-    }, {
-      label: 'API Security',
-      items: [{
-        label: 'API Security',
-        link: '/apisecurity/token/'
-      }]
-    }, {
-      label: 'API Logging',
-      autogenerate: {
-        directory: 'apilogging'
-      }
-    }, {
-      label: 'API Documentation',
-      autogenerate: {
-        directory: 'apidoc/apidoc'
-      },
-      autogenerate: {
-        directory: 'apidoc/requestobj'
-      },
-      autogenerate: {
-        directory: 'apidoc'
-      },
-      autogenerate: {
-        directory: 'apidoc'
-      }
-    }]
-  }), tailwind(), mdx(), sitemap()
-  // markdown(),
-  ],
-  output: "server",
-  adapter: vercel()
+    site: "http://localhost:3000",
+    integrations: [
+        starlight({
+            title: 'Saras',
+            // sidebar: customSidebar ,
+            sidebar: getSidebar('/') 
+        }),
+        tailwind(),
+        mdx(),
+        react()
+    ],
 });
+
