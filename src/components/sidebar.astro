@@ -1,0 +1,23 @@
+---
+import { customSidebar, learningAstroSidebar, getSidebar } from '../components/customesidebar';
+
+
+let sidebar = getSidebar("");
+
+---
+<nav>
+    <ul>
+        {sidebar.map(section => (
+            <li>
+                <strong>{section?.label}</strong>
+                {section?.items ? (
+                    <ul>
+                        {section.items.map(item => (
+                            <li><a href={item.link}>{item.label}</a></li>
+                        ))}
+                    </ul>
+                ) : null}
+            </li>
+        ))}
+    </ul>
+</nav>

@@ -1,58 +1,172 @@
+// // astro.config.mjs
+// import { defineConfig } from 'astro/config';
+// import starlight from '@astrojs/starlight';
+// import mdx from "@astrojs/mdx";
+// import tailwind from "@astrojs/tailwind";
+// import sitemap from "@astrojs/sitemap";
+// import starlightDocSearch from '@astrojs/starlight-docsearch';
+// import vercel from "@astrojs/vercel/serverless";
+// import react from "@astrojs/react";
+
+// const laravelApiSidebar = [
+//   {
+//     label: 'Laravel & Package composition',
+//     link: '/package/package/'
+//   },
+//   {
+//     label: 'API Security',
+//     items: [
+//       {
+//         label: 'API Security',
+//         link: '/apisecurity/token/'
+//       }
+//     ]
+//   },
+//   {
+//     label: 'API Logging',
+//     autogenerate: {
+//       directory: 'apilogging'
+//     }
+//   },
+//   {
+//       label: 'API Documentation',
+//       autogenerate: {
+//         directory: 'apidoc/apidoc'
+//       },
+//       autogenerate: {
+//         directory: 'apidoc/requestobj'
+//       },
+//       autogenerate: {
+//         directory: 'apidoc'
+//       },
+//       autogenerate: {
+//         directory: 'apidoc'
+//       }
+//     }, 
+// ];
+
+// const learningAstroSidebar = [
+//   {
+//     label: 'Start Here',
+//     items: [
+//       {
+//         label: 'Getting Started',
+//         link: '/laravel/api/start/started/'
+//       },
+//       {
+//         label: 'Manual Setup',
+//         link: '/laravel/api/start/install/'
+//       },
+//       {
+//         label: 'Deploy Your Site',
+//         link: '/laravel/api/start/deploy/'
+//       }
+//     ]
+//   },
+//   {
+//     label: 'Core Concept',
+//     items: [
+//       {
+//         label: 'Why Astro',
+//         link: '/laravel/api/coreconcept/astro/'
+//       }
+//     ]
+//   },
+//   {
+//     label: 'Guides',
+//     items: [
+//       {
+//         label: 'Pages',
+//         link: '/laravel/api/guides/example/'
+//       },
+//       {
+//         label: 'Authoring Content in Markdown',
+//         link: '/laravel/api/guides/markdown/'
+//       },
+//       {
+//         label: 'Components',
+//         link: '/laravel/api/guides/component/'
+//       },
+//       {
+//         label: 'CSS & Styling',
+//         link: '/laravel/api/guides/styling/'
+//       },
+//       {
+//         label: 'Customizing Starlight',
+//         link: '/laravel/api/guides/customizing/'
+//       },
+//       {
+//         label: 'Internationalization (i18n)',
+//         link: '/laravel/api/guides/internationalization/'
+//       },
+//       {
+//         label: 'Overriding Components',
+//         link: '/laravel/api/guides/overridingcomponents/'
+//       },
+//       {
+//         label: 'Project Structure',
+//         link: '/laravel/api/guides/projectstructure/'
+//       },
+//       {
+//         label: 'Sidebar Navigation',
+//         link: '/laravel/api/guides/sidebarnavigation/'
+//       },
+//       {
+//         label: 'Site Search',
+//         link: '/laravel/api/guides/sitesearch/'
+//       }
+//     ]
+//   }
+// ];
+
+// export default defineConfig({
+//   site: "http://localhost:3000",
+//   integrations: [
+//     starlight({
+//       title: 'Saras',
+//       sidebar: [
+//         // The default sidebar configuration will be overwritten
+//         {
+//           label: 'Laravel API',
+//           items: laravelApiSidebar,
+//           match: /^\/package\/package|\/apisecurity|\/apilogging|\/apidoc/
+//         },
+//         {
+//           label: 'Learning Astro',
+//           items: learningAstroSidebar,
+//           match: /^\/laravel\/api/
+//         }
+//       ]
+//     }),
+//     tailwind(),
+//     mdx(),
+//     sitemap(),
+//     react()
+//   ],
+//   output: "server",
+//   adapter: vercel()
+// });
+
+
+
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import tailwind from '@astrojs/tailwind';
+import { customSidebar ,learningAstroSidebar ,getSidebar} from './src/components/customesidebar';
 import mdx from "@astrojs/mdx";
-import tailwind from "@astrojs/tailwind";
-import sitemap from "@astrojs/sitemap";
-import starlightDocSearch from '@astrojs/starlight-docsearch';
-// import { markdown } from '@astrojs/markdown-remark';
-import vercel from "@astrojs/vercel/serverless";
+import react from "@astrojs/react";
 
-// https://astro.build/config
 export default defineConfig({
-  site: "http://localhost:3000",
-  integrations: [starlight({
-    title: 'My Docs',
-    // social: {
-    //   github: 'https://github.com/withastro/starlight'
-    // },
-    plugins: [starlightDocSearch({
-      appId: 'YOUR_APP_ID',
-      apiKey: 'YOUR_SEARCH_API_KEY',
-      indexName: 'YOUR_INDEX_NAME'
-    })],
-  
-    sidebar: [{
-      label: 'Laravel & Package composition',
-      link: '/package/package/'
-    }, {
-      label: 'API Security',
-      items: [{
-        label: 'API Security',
-        link: '/apisecurity/token/'
-      }]
-    }, {
-      label: 'API Logging',
-      autogenerate: {
-        directory: 'apilogging'
-      }
-    }, {
-      label: 'API Documentation',
-      autogenerate: {
-        directory: 'apidoc/apidoc'
-      },
-      autogenerate: {
-        directory: 'apidoc/requestobj'
-      },
-      autogenerate: {
-        directory: 'apidoc'
-      },
-      autogenerate: {
-        directory: 'apidoc'
-      }
-    }]
-  }), tailwind(), mdx(), sitemap()
-  // markdown(),
-  ],
-  output: "server",
-  adapter: vercel()
+    site: "http://localhost:3000",
+    integrations: [
+        starlight({
+            title: 'Saras',
+            // sidebar: customSidebar ,
+            sidebar: getSidebar('/') 
+        }),
+        tailwind(),
+        mdx(),
+        react()
+    ],
 });
+

@@ -12,3 +12,7 @@ h1:where(.astro-j6tvhyss)
  .sl-markdown-content h2{
   font-size:30px   
  }
+ .hero:where(.astro-jbfsktt5){
+
+padding: 0 !important;
+ }
